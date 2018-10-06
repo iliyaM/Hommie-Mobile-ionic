@@ -1,0 +1,137 @@
+page-account-manager {
+
+}
+
+section.acc-manager {
+  background-color: #5e5c6c;
+  display: flex;
+
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 1em;
+
+  div.controls {
+    display: flex;
+    justify-content: space-between;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    button {
+      color: #d7d9b1;
+      display: flex;
+      width: 45%;
+
+      justify-content: space-around;
+      align-items: center;
+
+      i {
+        font-size: 1.3em;
+        padding: 0 0.5em;
+        color: #d7d9b1;
+      }
+    }
+  }
+
+  div.allData {
+    overflow-y: scroll;
+    height: calc(100% - 50px);
+  }
+}
+
+section.acc-manager ul.record-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100% - 50px);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 100px;
+
+    padding: 0.5em 1em;
+    background-color: #5f5566;
+    color: #d7d9b1;
+
+    border: 1px solid #d7d9b1;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+    font-size: 1.3em;
+
+    &:first-of-type {
+      margin-top: 1em;
+    }
+
+    div.left {
+      display: flex;
+      align-items: center;
+      text-align: right;
+
+      i {
+        font-size: 30px;
+        &:last-of-type {
+          padding-left: 1em;
+        }
+      }
+
+      i.fa.fa-frown-o {
+        color: #f06543;
+      }
+
+      i.fa.fa-smile-o {
+        color: #80ada0;
+      }
+    }
+
+  }
+
+  div.middle {
+    display: flex;
+    align-items: center;
+
+    i {
+      font-size: 20px;
+    }
+  }
+  div.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    div.upper {
+      display: flex;
+      align-items: center;
+      text-align: right;
+      justify-content: flex-end;
+
+      span {
+        padding-left: 1em;
+      }
+    }
+
+    div.lower {
+      text-align: right;
+    }
+  }
+}
+
+.nodata {
+  color: #d7d9b1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}

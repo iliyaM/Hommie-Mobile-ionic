@@ -1,0 +1,52 @@
+<!--
+  Generated template for the ScreenConfigPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>ניהול מסכים</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <section class="screen-config">
+        <ion-slides pager class="sliders" (ionSlideDidChange)="slideChanged()">
+
+            <ion-slide *ngFor="let slide of slidesArray">
+                <h2>{{ slide.title }}</h2>
+                <div class="monitor {{slide.documentId}}">
+                    <div class="layout {{selectedLayout}} ">
+                        <div class="mainContent">
+                            <h2 (click)="mothSelector = true ">{{ slide.watchingMonth}}</h2>
+                            <div class="container" [innerHTML]="slide.layoutContent"></div>
+                        </div>
+                        <div class="sidebar1">
+                            <div class="sidebar2"></div>
+                        </div>
+                    </div>
+                </div>
+            </ion-slide>
+
+        </ion-slides>
+
+        <div class="layouts">
+            <ul *ngIf="layouts" [@groupFlyInAnimation]>
+                <li *ngFor="let item of layouts" (click)="setSelectedLayout(item)" [ngClass]="{'selected': item === selectedLayout}">{{item}}</li>
+            </ul>
+        </div>
+
+        <div class="popup" *ngIf="mothSelector">
+            <select (change)="updateFb($event)">
+                <option value="null">בחר חודש להצגה</option>
+                <option *ngFor="let item of documentIds" [value]="item">{{ item }}</option>
+            </select>
+            <button ion-button color="custom-blue" (click)="mothSelector = false ">ביטול</button>
+        </div>
+    </section>
+
+</ion-content>

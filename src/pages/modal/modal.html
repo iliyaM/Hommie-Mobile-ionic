@@ -1,0 +1,79 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title style="direction: rtl">רשומה חדשה</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <section class="acc-modal">
+
+        <div class="options">
+            <ion-item class="ionic-item" color="custom-purple">
+                <ion-label class="ionic-label">סוג רשומה</ion-label>
+
+                <ion-select [(ngModel)]="formObject.modifier" okText="אישור" cancelText="ביטול" class="ionic-item">
+                    <ion-option value="regular">הוצאה רגילה</ion-option>
+                    <ion-option value="constant">הוצאה קבועה</ion-option>
+                    <ion-option value="sallary">משכורת</ion-option>
+                    <ion-option value="savings">חסכון</ion-option>
+                    <ion-option value="loans">הלוואה</ion-option>
+                </ion-select>
+            </ion-item>
+        </div>
+        <form #accForm="ngForm" (ngSubmit)="submitForm(accForm)">
+            <ion-item class="ionic-item">
+                <ion-label class="ionic-lable">
+                    <i class="fa fa-calendar"></i>
+                    תאריך
+                </ion-label>
+                <ion-datetime name="date" displayFormat="DD MM" (ionChange)="updateObject($event)" required></ion-datetime>
+            </ion-item>
+
+            <label>
+                <i class="fa fa-pencil-square-o"></i>
+                תאור
+                <input name="desc" type="text" [(ngModel)]="formObject.desc" required />
+            </label>
+
+            <label>
+                <i class="fa fa-ils"></i>
+                סכום
+                <input type="text" name="value" [(ngModel)]="formObject.value" required />
+            </label>
+
+            <!-- Checker -->
+            <div class="motherChecker">
+                <span class="content">
+                    <p> רשומות נאספות לחודש הנוכיח </p>
+                    <p style="color: orange;">{{ currentMonth }}</p>
+                </span>
+                <ion-item class="ionic-item">
+                    <ion-label class="ionic-lable">
+                        לחץ לשינוי
+                    </ion-label>
+                    <ion-datetime name="date" displayFormat="MM" (ionChange)="updateCurrentMonth($event)"></ion-datetime>
+                </ion-item>
+            </div>
+
+            <div class="iconChooser">
+                <button ion-button (click)="openIconsModal()" type="button">שנה אייקון</button>
+                <i [ngClass]="formObject.icon === null ? 'fa fa-money' : formObject.icon"></i>
+            </div>
+
+            <div class="control-options">
+                <button ion-button color="custom-blue" [disabled]="!accForm.valid" type="submit">
+                    <i class="fa fa-check"></i>
+                    אשר
+                </button>
+                <button ion-button color="custom-red" (click)="closeModal()" type="reset">
+                    בטל
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+        </form>
+
+    </section>
+</ion-content>

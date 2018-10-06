@@ -1,0 +1,12 @@
+<div class="icons">
+    <h2>בחר אייקון</h2>
+    <ul>
+        <li *ngFor="let icon of iconsArray" (click)="handleIconChoosing(icon)" [ngClass]="{'selected': selectedIcon === icon}">
+            <i class="{{ icon  }}"></i>
+        </li>
+    </ul>
+    <div class="controls">
+        <button ion-button color="custom-red" (click)="cancel()">בטל</button>
+        <button ion-button coor="custom-blue" (click)="close()">אשר</button>
+    </div>
+</div>

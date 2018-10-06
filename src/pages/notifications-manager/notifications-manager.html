@@ -1,0 +1,55 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>ניהול התראות</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <section class="notifications">
+        <div *ngIf="allNotifications; else noDataTemplate" class="allData">
+
+            <ul class="record-list">
+                <li *ngFor="let item of allNotifications" class="record-item" [@groupFlyInAnimation]>
+
+                    <div class="left">
+                        <i class="fa fa-trash" (click)="deleteNotification(item)"></i>
+                        <i class="fa fa-edit" (click)="editNotification(item)"></i>
+                    </div>
+
+                    <div class="right">
+                        <div class="upper">
+                            <h3>{{item.title}}</h3>
+                            <i [class]="item.icon"></i>
+                        </div>
+                        <div class="lower">
+                            <p>{{item.content}}</p>
+                            <span>{{item.date}}</span>
+                            <span>{{item.time}}</span>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+
+        </div>
+
+        
+
+        <div class="controls">
+            <button ion-button color="custom-blue" (click)="addNewNotification()">
+                הוסף רשומה חדשה
+            </button>
+        </div>
+    </section>
+</ion-content>
+
+
+<ng-template #noDataTemplate>
+    <div class="nodata">
+        <h2>טוען רשימות לחודש זה</h2>
+    </div>
+</ng-template>
+

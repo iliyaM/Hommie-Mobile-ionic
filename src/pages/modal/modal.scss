@@ -1,0 +1,137 @@
+page-modal {
+
+}
+
+
+section.acc-modal {
+  direction: rtl;
+
+  background-color: #5f5566;
+  box-sizing: border-box;
+  padding: 0.5em;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    padding: 1em 0;
+
+    .ionic-item {
+      background-color: #5f5566;
+      color: white;
+      i {
+        color: white;
+      }
+    }
+
+    .ionic-lable {
+      color: white;
+      i {
+        color: white;
+      }
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      color: white;
+      position: relative;
+      font-size: 15px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 95%;
+        height: 1px;
+        background-color: white;
+      }
+
+      input {
+        box-sizing: border-box;
+        padding: 0.5em;
+        border: 1px solid transparent;
+        width: 100%;
+        background-color: transparent;
+      }
+
+      i {
+        color: white;
+        font-size: 1.3em;
+        padding-right: 0.8em;
+        padding-left: 0.3em;
+      }
+    }
+  }
+
+  div.options,
+  div.control-options,
+  div.buttom-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    button {
+      width: 35%;
+
+      display: flex;
+      align-items: center;
+
+      &.active {
+        background-color:  #e9b44c;
+      }
+
+      i {
+        font-size: 1.3em;
+        padding: 0 1em;
+      }
+
+    }
+  }
+  div.motherChecker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    
+    span.content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      font-size: 1.3em;
+      width: 100%;
+    box-sizing: border-box;
+    padding: 0 0.5em;
+      p {
+        margin: 0;
+      }
+    }
+    
+  }
+
+  div.iconChooser {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: space-between;
+    padding: 0.5em 2em;
+
+    i {
+      font-size: 35px;
+      color: white;
+    }
+  }
+
+}

@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>notification-modal</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <section class="notifications-modal">
+        <form #notifyForm="ngForm" (ngSubmit)="submitForm(notifyForm)">
+
+            <label>
+                <i class="fa fa-pencil-square-o"></i>
+                כותרת
+                <input name="desc" type="text" [(ngModel)]="formObject.title" required/>
+            </label>
+
+            <label>
+                <i class="fa fa-pencil-square-o"></i>
+                תוכן
+                <input name="content" type="text" [(ngModel)]="formObject.content" required/>
+            </label>
+
+            <div class="iconChooser">
+                <button ion-button (click)="openIconsModal()" type="button">הוסף אייקון</button>
+                <i [class]="formObject.icon"></i>
+            </div>
+
+            <div class="buttom-options">
+                <button ion-button color="custom-dark" (click)="formObject.animations = true " type="button"
+                        [ngClass]="{'active': formObject.animations === true }">
+                    חשוב
+                </button>
+
+                <button ion-button color="custom-dark" (click)="formObject.animations = false " type="button"
+                        [ngClass]="{'active': formObject.animations === false }">
+                    רגיל
+                </button>
+            </div>
+
+            <div class="control-options">
+                <button ion-button color="custom-blue" [disabled]="!notifyForm.valid" type="submit">
+                    <i class="fa fa-check"></i>
+                    אשר
+                </button>
+                <button ion-button color="custom-red" (click)="closeModal()" type="reset">
+                    בטל
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+        </form>
+
+    </section>
+
+
+</ion-content>

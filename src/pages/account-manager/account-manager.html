@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>ניהול רשומות חשבון</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <section class="acc-manager">
+        <div class="allData">
+            <i *ngIf="entries; else noDataTemplate" [@groupFlyInAnimation]>
+                <ion-item>
+                    <ion-label>בחירת חודש</ion-label>
+                    <ion-select okText="בחר" cancelText="ביטול" [(ngModel)]="currentMonth" (ionChange)="selectionChanged($event)">
+                        <ion-option *ngFor="let item of documentIds" [value]="item">{{ item }}</ion-option>
+                    </ion-select>
+                </ion-item>
+
+                <ul class="record-list" *ngIf="entries" [@groupFlyInAnimation]>
+                    <li *ngFor="let item of entries" class="record-item">
+
+                        <div class="left">
+                            <i class="fa fa-trash" (click)="deleteItem(item)"></i>
+                            <i [class]="checkClass(item)"></i>
+                        </div>
+                        <div class="middle">
+                            <i class="fa fa-ils"></i>
+                            <span>{{item.value}}</span>
+                        </div>
+                        <div class="right">
+                            <div class="upper">
+                                <i [class]="item.icon"></i>
+                                <span>{{item.date}}</span>
+                            </div>
+                            <div class="lower">
+                                <span>{{item.desc}}</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </i>
+        </div>
+
+        <div class="controls">
+            <button (click)="showAll()" ion-button color="custom-blue">
+                הצג את כל הרשומות
+            </button>
+
+            <button ion-button color="custom-blue" (click)="add()">
+                הוסף רשומה חדשה
+            </button>
+        </div>
+    </section>
+</ion-content>
+
+
+<ng-template #noDataTemplate>
+    <div class="nodata">
+        <h2>לחץ "הצג את כל הרשומות" כדי לראות מידע על ההרשומות שנוספו</h2>
+    </div>
+</ng-template>
